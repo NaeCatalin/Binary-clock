@@ -1,3 +1,30 @@
-<Solution>
-  <Project Path="ceas binar/ceas binar.csproj" />
-</Solution>
+using System;
+using System.Threading;
+
+class BinaryClock
+{
+    static void Main()
+    {
+        while (true)
+        {
+            Console.Clear();
+
+            DateTime now = DateTime.Now;
+
+            string hourBinary = Convert.ToString(now.Hour, 2).PadLeft(5, '0');
+            string minuteBinary = Convert.ToString(now.Minute, 2).PadLeft(6, '0');
+            string secondBinary = Convert.ToString(now.Second, 2).PadLeft(6, '0');
+
+            Console.WriteLine("Ceas Binar\n");
+            Console.WriteLine($"Ora normala: {now:HH:mm:ss}\n");
+
+            Console.WriteLine("Format binar:");
+            Console.WriteLine($"Ore    : {hourBinary}");
+            Console.WriteLine($"Minute : {minuteBinary}");
+            Console.WriteLine($"Secunde: {secondBinary}");
+
+            Thread.Sleep(1000);
+        }
+    }
+}
+
